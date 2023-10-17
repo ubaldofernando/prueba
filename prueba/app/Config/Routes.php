@@ -23,4 +23,7 @@ $routes->post('/actualizar', 'Home::actualizar');
 
 $routes->post('/registro', 'Home::registro');
 
+$routes->get('/registro', 'Home::registro1');
+
+
 $routes->get('/accesos', 'Home::accesos');

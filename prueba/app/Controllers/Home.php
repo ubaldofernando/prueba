@@ -27,8 +27,11 @@ class Home extends BaseController
         $Usuario = new Usuarios();
 
         $datosUsuario = $Usuario->obtenerUsuario(['usuario' => $usuario]);
-        if ((count($datosUsuario) > 0) && password_verify($password, $datosUsuario[0]['pass']) ) {
-            $data=[
+   //     if ((count($datosUsuario) > 0) && password_verify($password, $datosUsuario[0]['pass']) ) {
+    //estoy utilizando mal password_verify requiere del hash y no lo utilicé para la contraseña en el seeder
+    
+    if ((count($datosUsuario) > 0) && ($password == $datosUsuario[0]['pass']) )  {   
+        $data=[
                 "usuario" => $datosUsuario[0]['usuario'],
                 "tipo" => $datosUsuario[0]['tipo']
             ];
@@ -114,7 +117,7 @@ class Home extends BaseController
         $pass2 = $_POST['passwordr'];
         $rol = 'user';
 
-        if(pass1 == pass2) {
+        if($pass1 == $pass2) {
         $datos = [
             "usuario" => $_POST['usuario'],
             "correo" => $_POST['correo'],
@@ -134,5 +137,10 @@ class Home extends BaseController
         return redirect()->to(base_url().'/registro')->with('mensaje','2');
     }
 
+    }
+
+    public function registro1() {
+
+        return view('registro');
     }
 }
