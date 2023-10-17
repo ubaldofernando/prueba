@@ -11,8 +11,9 @@
     <title>Login</title>
   </head>
   <body>
-  <br> 
+  <hr> 
   <div class="container">
+
     <div class="row">
         <div class="col-4"></div>
         <div class="col-4">
@@ -24,7 +25,22 @@
                 <label for=""> Contraseña:</label>
                 <input class="form-control" type="password" name="password" name="password" Required>
                 <br>
-                <button class="btn btn-primary">Ingresar</button>
+                
+                <div class="row">
+                  <div class="col-2"></div>
+                  <div class="col-3"><a href="<?php echo base_url('/registro') ?>" class="btn btn-primary">Registrarse</a>
+               </div>
+               <div class="col-2"></div>
+
+                  <div class="col-3">
+                  <button class="btn btn-primary">Ingresar</button>
+                </div>
+               
+                <div class="col-2">
+                
+                </div>
+               
+                </div>
             </form>
         </div>
         <div class="col-4"></div>

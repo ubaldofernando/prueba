@@ -13,10 +13,14 @@ $routes->post('/login', 'Home::login');
 
 $routes->get('/salir', 'Home::salir');
 
-$routes->get('/obtener/(:any)', 'Home::obtener/$1');
+$routes->get('/obtenerUser/(:any)', 'Home::obtenerUser/$1');
 
-$routes->post('/registro', 'Home::crear');
+$routes->post('/crear', 'Home::crear');
 
 $routes->get('/eliminar/(:any)', 'Home::eliminar/$1');
 
 $routes->post('/actualizar', 'Home::actualizar');
+
+$routes->post('/registro', 'Home::registro');
+
+$routes->get('/accesos', 'Home::accesos');

@@ -25,7 +25,7 @@ class Filters extends BaseConfig
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
        
-       // 'Sessionadmin' => \App\Filters\sessionadmin::class,
+        'Sessionadmin' => \App\Filters\Sessionadmin::class,
     ];
 
     /**
@@ -69,7 +69,7 @@ class Filters extends BaseConfig
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
     public array $filters = [
-        /* 
+     /*   
         "Sessionadmin" => [
             "before" => [
                 "/inicio"

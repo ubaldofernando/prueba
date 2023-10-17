@@ -18,40 +18,57 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-    <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('/registro') ?>">Salir <span class="sr-only">(current)</span></a>
-      </li>
+    <ul class="navbar-nav mr-auto">  
+    <li class="nav-item active">
+        <a class="nav-link" href="<?php echo base_url('/accesos') ?>">Accesos <span class="sr-only">(current)</span></a>
+      </li>  
       <li class="nav-item active">
         <a class="nav-link" href="<?php echo base_url('/salir') ?>">Salir <span class="sr-only">(current)</span></a>
       </li>
+      
     </ul>
   </div>
 </nav>
 
-<div class="container">
-    <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4">
-            <form  method="POST" action="<?php echo base_url().'registro' ?>">
-            <h3>Formulario de Registro</h3>
-                <br>
-                <label for="">Usuario:</label>
-                <input class="form-control" type="text" id="usuario" name="usuario" Required>
-                <label for=""> Correo electrónico:</label>
-                <input class="form-control" type="email" id="correo" name="correo" Required>
-                <label for=""> Contraseña:</label>
-                <input class="form-control" type="password" name="password" name="password" Required>
-                <label for=""> Repetir Contraseña:</label>
-                <input class="form-control" type="password" name="passwordr" name="passwordr" Required>
-                <br>
-                <button class="btn btn-primary">Registrarse</button>
-            </form>
-        </div>
-        <div class="col-4"></div>
-    </div>
-   </div>
 
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <form  method="POST" action="<?php echo base_url().'crear' ?>">
+        <h3>Alta de Usuarios</h3>
+            <br>
+            <div class="row">
+    <div class="col-4">
+        <label for="">Usuario:</label>
+        <input class="form-control" type="text" id="usuario" name="usuario" Required>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-4">
+        <label for=""> Correo electrónico:</label>
+            <input class="form-control" type="email" id="correo" name="correo" Required>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+      <div class="col-4">
+          <label for=""> Contraseña:</label>                
+          <input class="form-control" type="text" name="password" name="password" Required>
+      </div>
+      <div class="col-1"></div>
+      <div class="col-4">
+          <label for=""> Rol:</label>
+          <input class="form-control" type="text" name="rol" name="rol" Required>
+      </div>
+  </div>
+  <br>
+  <button class="btn btn-primary">Crear Usuario</button>
+                
+  </form>
+        </div>
+        <div class="col-2"></div>
+    </div>
+    <br>
+<hr>
 <hr>
    <div class="row">
     <div class="col-1"></div>
@@ -64,6 +81,7 @@
                 <th>Id</th>
                 <th>Usuario</th>
                 <th>Correo electrónico</th>
+                <th>Rol</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
             </tr>
@@ -72,11 +90,12 @@
                 <td><?php echo $key->id ?></td>
                 <td><?php echo $key->usuario ?></td>
                 <td><?php echo $key->correo ?></td>
+                <td><?php echo $key->tipo ?></td>
                 <td>
-                  <a href="<?php echo base_url().'/obtener/$key->id_user' ?>" class="btn btn-warning btn-sm">Editar</a>
+                <a href="<?= base_url('obtenerUser/') . $key->id ?>" class="btn btn-warning btn-sm">Editar</a>
                 </td>
                 <td>
-                  <a href="" class="btn btn-danger btn-sm">Eliminar</a>
+                  <a href="<?php echo base_url('eliminar/') . $key->id ?>" class="btn btn-danger btn-sm">Eliminar</a>
                 </td>
               </tr>
             <?php endforeach; ?>

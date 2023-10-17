@@ -7,7 +7,6 @@ use App\Models\Usuarios;
 class Home extends BaseController
 {
     public function index() {
-
         
         //
         $mensaje = session('mensaje');
@@ -35,10 +34,9 @@ class Home extends BaseController
             ];
             $session= session();
             $session->set($data);
-            return redirect()->to(base_url('/inicio'))->with('mensaje','1');
- 
+            return redirect()->to(base_url('/inicio')); 
         } else {
-            return redirect()->to(base_url('/'))->with('mensaje','0');
+            return redirect()->to(base_url('/'));
         }
     }
 
@@ -49,28 +47,92 @@ class Home extends BaseController
         return redirect()->to(base_url('/'));
     }
 
-    public function registar() {
-        return redirect()->to(base_url('/registrar'));
-    }
-
-    public function crear() {
-        print_r($_POST);
-        
     
+
+    public function crear() {      
+        $datos = [
+            "usuario" => $_POST['usuario'],
+            "correo" => $_POST['correo'],
+            "pass" => $_POST['password'],
+            "tipo" => $_POST['rol']
+        ];
+        $User = new Usuarios();
+        $respuesta = $User->insertar($datos);
+
+        if ($respuesta >0) {
+            return redirect()->to(base_url().'/inicio')->with('mensaje','1');
+        } else {
+            return redirect()->to(base_url().'/inicio')->with('mensaje','0');
+        }
+        
     }
 
     public function actualizar() {
+        $datos = [
+            "usuario" => $_POST['usuario'],
+            "correo" => $_POST['correo'],
+            "pass" => $_POST['password'],
+            "tipo" => $_POST['rol']
+        ];
+        $iduser= $_POST['iduser'];
+        $Usuario = new Usuarios();
+
+        $respuesta = $Usuario->actualizar($datos,$iduser);
        
-        return redirect()->to(base_url('/'));
+        return redirect()->to(base_url('/inicio'));
     }
 
     public function obtenerUser($iduser) {
+        $data = ["id" => $iduser];
+        $User = new Usuarios();
+        $respuesta = $User->obtenerUser($data);
+
+        $datos=["datos"=> $respuesta];
        
-        return redirect()->to(base_url('/'));
+        return view('actualizar',$datos);
     }
 
-    public function eliminar($iduser) {
+    public function eliminar($data) {
+        $User = new Usuarios();
+        $data = ["id" => $data];
+
+        $respuesta = $User->eliminar($data);
        
-        return redirect()->to(base_url('/'));
+        return redirect()->to(base_url('/inicio'));
+    }
+
+    public function accesos() {
+        $Home = new Usuarios();
+        $datos = $Home->listarUsers();
+
+        return view('accesos', ['datos' => $datos]);
+    }
+
+    public function registro() {  
+        
+        $pass1 = $_POST['password'];
+        $pass2 = $_POST['passwordr'];
+        $rol = 'user';
+
+        if(pass1 == pass2) {
+        $datos = [
+            "usuario" => $_POST['usuario'],
+            "correo" => $_POST['correo'],
+            "pass" => $_POST['password'],
+            "tipo" => $rol
+        ];
+        $User = new Usuarios();
+        $respuesta = $User->insertar($datos);
+
+        if ($respuesta >0) {
+            return redirect()->to(base_url('/'))->with('mensaje','1');
+        } else {
+            return redirect()->to(base_url('/'))->with('mensaje','0');
+        }
+        
+    }else {
+        return redirect()->to(base_url().'/registro')->with('mensaje','2');
+    }
+
     }
 }

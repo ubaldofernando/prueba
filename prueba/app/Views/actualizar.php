@@ -1,3 +1,11 @@
+<?php
+    $iduser = $datos[0]['id'];
+    $user = $datos[0]['usuario'];
+    $correo = $datos[0]['correo'];
+    $pass = $datos[0]['pass'];
+    $rol = $datos[0]['tipo'];
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,21 +22,24 @@
   <body>
   <br> 
   <div class="container">
+ 
     <div class="row">
         <div class="col-4"></div>
         <div class="col-4">
             <form  method="POST" action="<?php echo base_url().'/actualizar' ?>">
-            <h3>Formulario de Registro</h3>
+            <h3>Modificar Registros</h3>
                 <br>
-                <input type="text" id="iduser" name="iduser" hidden="">
+                <input type="text" id="iduser" name="iduser" hidden="" value="<?php echo $iduser ?>">
                 <label for="">Usuario:</label>
-                <input class="form-control" type="text" id="usuario" name="usuario">
+                <input class="form-control" type="text" id="usuario" name="usuario" value="<?php echo $user ?>">
                 <label for=""> Correo electrónico:</label>
-                <input class="form-control" type="email" id="correo" name="correo">
+                <input class="form-control" type="email" id="correo" name="correo" value="<?php echo $correo ?>">
                 <label for=""> Contraseña:</label>
-                <input class="form-control" type="password" name="password" name="password">
+                <input class="form-control" type="text" name="password" name="password" value="<?php echo $pass ?>">
+                <label for=""> Rol:</label>
+                <input class="form-control" type="text" id="rol" name="rol" value="<?php echo $rol ?>">
                 <br>
-                <button class="btn btn-primary">Guardar</button>
+                <button class="btn btn-primary">Actualizar</button>
             </form>
         </div>
         <div class="col-4"></div>

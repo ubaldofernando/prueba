@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-4"></div>
         <div class="col-4">
-            <form  method="POST" action="<?php echo base_url().'/registro' ?>">
+            <form   action="<?php echo base_url().'registro' ?>" method="POST">
             <h3>Formulario de Registro</h3>
                 <br>
                 <label for="">Usuario:</label>
@@ -34,22 +34,7 @@
         <div class="col-4"></div>
     </div>
    </div>
-   <hr>
-   <h3>Listado de Usuarios</h3>
-   <div class="row">
-    <div class="col-12">
-        <div class="table table-responsive"></div>
-        <table class="table table-hover table-bordered">
-            <tr>
-                <th>Id</th>
-                <th>Usuario</th>
-                <th>Correo electrónico</th>
-                <th>Editar</th>
-                <th>Eliminar</th>
-            </tr>
-        </table>
-    </div>
-   </div>
+  
 
     <!-- Optional JavaScript; choose one of the two! -->
 
