@@ -1,57 +1,80 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/fontawesome-free/css/all.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>/public/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>/public/assets/css/adminlte.min.css">
+</head>
+<body class="hold-transition login-page">
+<br>
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Iniciar Sesión</p>
 
-    <title>Login</title>
-  </head>
-  <body>
-  <hr> 
-  <div class="container">
-
-    <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4">
-            <form action="<?php echo base_url('/login') ?>" method="POST">
-                <h3>Iniciar Sesión</h3>
-                <br>
-                <label for="">Usuario:</label>
-                <input class="form-control" type="text" id="usuario" name="usuario" Required>
-                <label for=""> Contraseña:</label>
-                <input class="form-control" type="password" name="password" name="password" Required>
-                <br>
-                
-                <div class="row">
-                  <div class="col-2"></div>
-                  <div class="col-3"><a href="<?php echo base_url('/registro') ?>" class="btn btn-primary">Registrarse</a>
-               </div>
-               <div class="col-2"></div>
-
-                  <div class="col-3">
-                  <button class="btn btn-primary">Ingresar</button>
-                </div>
-               
-                <div class="col-2">
-                
-                </div>
-               
-                </div>
-            </form>
+      <form action="<?php echo base_url('/login') ?>" method="POST">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="usuario" id="usuario" name="usuario" Required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
         </div>
-        <div class="col-4"></div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" name="password" id="password" placeholder="contraseña" Required>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2">
+                      </div>
+          <!-- /.col -->
+          <div class="col-8">
+            <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+      <div class="social-auth-links text-center mb-3">
+        <p>- OR -</p>
+        <a href="#" class="btn btn-block btn-primary">
+          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+        </a>
+        <a href="#" class="btn btn-block btn-danger">
+          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+        </a>
+      </div>
+      <!-- /.social-auth-links -->
+
+      <p class="mb-1">
+        <a href="forgot-password.html">Olvidé mi contraseña</a>
+      </p>
+      <p class="mb-0">
+        <a href="<?php echo base_url('/registro') ?>" class="text-center">Registrarme</a>
+      </p>
     </div>
-   </div>
+  </div>
+</div>
 
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+<!-- jQuery -->
+<script src="<?php echo base_url(); ?>/public/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="<?php echo base_url(); ?>/public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="<?php echo base_url(); ?>/public/assets/js/adminlte.min.js"></script>
+</body>
 </html>

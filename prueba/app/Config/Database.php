@@ -28,7 +28,7 @@ class Database extends Config
         'DSN'          => '',
         'hostname'     => 'localhost',
         'username'     => 'root',
-        'password'     => '',
+        'password'     => '123456',
         'database'     => 'prueba_db',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
