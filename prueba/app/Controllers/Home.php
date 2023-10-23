@@ -17,7 +17,7 @@ class Home extends BaseController
         $Home = new Usuarios();
         $datos = $Home->listarUsers();
 
-        return view('inicio', ['datos' => $datos]);
+        return view('navbar_admin', ['datos' => $datos]).view('inicio', ['datos' => $datos]); 
     }
 
     public function login() {
@@ -142,5 +142,11 @@ class Home extends BaseController
     public function registro1() {
 
         return view('registro');
+    }
+
+
+    public function altaUsuario() {
+
+        return view('navbar_admin').view('altaUsuario');
     }
 }

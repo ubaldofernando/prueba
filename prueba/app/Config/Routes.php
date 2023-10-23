@@ -25,5 +25,8 @@ $routes->post('/registro', 'Home::registro');
 
 $routes->get('/registro', 'Home::registro1');
 
+$routes->get('/altaUsuario', 'Home::altaUsuario');
+
+
 
 $routes->get('/accesos', 'Home::accesos');
